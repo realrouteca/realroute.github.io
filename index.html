@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RealRoute - Optimized Property Tours for Realtors</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #333;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #ff6f61;
+    }
+
+    .navbar-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Header / Hero Section */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1717509747923-b9beac6bd4d5?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 0 20px;
+      margin-top: 60px; /* Offset for the fixed navbar */
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin: 0 0 20px;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+    }
+
+    .cta-button {
+      text-decoration: none;
+      padding: 15px 30px;
+      background-color: #ff6f61;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #ff3f31;
+    }
+
+    /* Features Overview */
+    .features {
+      padding: 60px 20px;
+      background: #fff;
+      text-align: center;
+    }
+
+    .features h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    .feature-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .feature-item {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 300px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature-item img {
+      width: 60px;
+      margin-bottom: 20px;
+    }
+
+    .feature-item h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #ff6f61;
+    }
+
+    .feature-item p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* How It Works Section */
+    .how-it-works {
+      padding: 60px 20px;
+      background: #f1f1f1;
+    }
+
+    .how-it-works h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .step-number {
+      background-color: #ff6f61;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.5rem;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      padding: 60px 20px;
+      background: #fff;
+      text-align: center;
+    }
+
+    .testimonials h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+
+    .testimonial-item {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      font-style: italic;
+    }
+
+    .testimonial-item p {
+      color: #666;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: #fff;
+      padding: 40px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ff6f61;
+      text-decoration: none;
+    }
+
+    .footer-links {
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      margin: 0 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-brand">RealRoute</div>
+    <div class="navbar-links">
+      <a href="#hero">Home</a>
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Header / Hero Section -->
+  <header class="hero" id="hero">
+    <h1>Effortless Property Tours, Optimized for You</h1>
+    <p>Plan, organize, and optimize buyer and developer tours with ease.</p>
+    <a href="#features" class="cta-button">Get Started</a>
+  </header>
+
+  <!-- Features Overview -->
+  <section id="features" class="features">
+    <h2>Key Features</h2>
+    <div class="feature-list">
+      <div class="feature-item">
+        <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=60&ixid=MnwzNjUyOXwwfDF8c2VhcmNofHx8fHx8fHwxNjg4NTcwODEz&ixlib=rb-1.2.1&q=80&w=60" alt="Optimized Routes">
+        <h3>Optimized Routes</h3>
+        <p>Spend less time on the road and more time viewing properties.</p>
+      </div>
+      <div class="feature-item">
+<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=60&w=60&q=80" alt="Seamless Scheduling">
+        <h3>Seamless Scheduling</h3>
+        <p>Easily schedule and reschedule tours to meet client needs.</p>
+      </div>
+      <div class="feature-item">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=60&ixid=MnwzNjUyOXwwfDF8c2VhcmNofHx8fHx8fHwxNjg4NTcwODE3&ixlib=rb-1.2.1&q=80&w=60" alt="Real-Time Updates">
+        <h3>Real-Time Updates</h3>
+        <p>Navigate with live traffic data for the fastest routes.</p>
+      </div>
+      <div class="feature-item">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=60&ixid=MnwzNjUyOXwwfDF8c2VhcmNofHx8fHx8fHwxNjg4NTcwODE5&ixlib=rb-1.2.1&q=80&w=60" alt="Customizable Routes">
+        <h3>Customizable Routes</h3>
+        <p>Prioritize stops and adapt routes to fit every client’s needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step-item">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Create a Tour</h3>
+          <p>Enter your properties and client preferences to start creating a tailored tour.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Optimize Route</h3>
+          <p>Automatically arrange the best path between properties for maximum efficiency.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Review & Confirm</h3>
+          <p>Customize, share, and confirm the tour details with your clients effortlessly.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Track & Adjust</h3>
+          <p>Make live adjustments to routes as needed to meet client requirements on the go.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-item">
+      <p>“RealRoute made organizing my property tours so much easier. My clients are impressed, and I can maximize my time efficiently.”</p>
+      <p>- Alex Johnson, Realtor</p>
+    </div>
+    <div class="testimonial-item">
+      <p>“The optimized routes and real-time adjustments are game changers. Highly recommend!”</p>
+      <p>- Sarah Miller, Realtor</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="#hero">Home</a>
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p>&copy; 2024 RealRoute. All rights reserved. | <a href="#">Privacy Policy</a></p>
+  </footer>
+
+</body>
+</html>
